@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react'
 import ReactDOM from 'react-dom'
 import Permanent from './_Permanent'
 import Temporary from './_Temporary'
+import Persistent from './_Persistent'
 
 class Template extends React.PureComponent {
 
@@ -12,6 +13,9 @@ class Template extends React.PureComponent {
   componentDidMount() {
     const permanent = document.getElementById("permanent");
     ReactDOM.render(<Permanent/>, permanent);
+
+    const persistent = document.getElementById("persistent");
+    ReactDOM.render(<Persistent/>, persistent);
 
     const temporary = document.getElementById("temporary");
     ReactDOM.render(<Temporary/>, temporary);
