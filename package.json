@@ -1,12 +1,12 @@
 {
-  "name": "react-mdc-web",
-  "version": "0.16.0",
+  "name": "react-mdc-web-a",
+  "version": "0.16.1",
   "description": "React web components for Material Design",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
-  "author": "kradio3",
+  "author": ["kradio3","andersoo"],
   "license": "SEE LICENSE IN LICENSE.md",
-  "repository": "kradio3/react-mdc-web",
+  "repository": "andersoo/react-mdc-web",
   "keywords": [
     "react",
     "mdc",
