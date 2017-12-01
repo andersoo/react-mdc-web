@@ -11,6 +11,8 @@ class Persistent extends Component {
     header: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
     onClick: PropTypes.func,
     onTouchstart: PropTypes.func,
+    onTouchmove: PropTypes.func,
+    onTouchend: PropTypes.func,
     onTransitionend: PropTypes.func,
     animating: PropTypes.bool,
     position: PropTypes.number,
@@ -45,7 +47,7 @@ class Persistent extends Component {
       return;
     }
 
-    if (Temporary.isWrongPointer(pointerType)) {
+    if (Persistent.isWrongPointer(pointerType)) {
       return;
     }
 
@@ -56,7 +58,7 @@ class Persistent extends Component {
   }
 
   handleTouchmove({ pointerType, touches, pageX }) {
-    if (Temporary.isWrongPointer(pointerType)) {
+    if (Persistent.isWrongPointer(pointerType)) {
       return;
     }
     const currentX = touches ? touches[0].pageX : pageX;
@@ -64,7 +66,7 @@ class Persistent extends Component {
   }
 
   handleTouchend({ pointerType }) {
-    if (Temporary.isWrongPointer(pointerType)) {
+    if (Persistent.isWrongPointer(pointerType)) {
       return;
     }
     const newPosition = this.calculateDrawerPosition();
@@ -107,13 +109,13 @@ class Persistent extends Component {
     const { animating } = this.state;
 
     const childs = React.Children.map(children, child =>
-      React.cloneElement(child, { temporary: true }),
+      React.cloneElement(child, { Persistent: true }),
     );
 
-    const position = this.calculateDrawerPosition();
+    // const position = this.calculateDrawerPosition();
     const ROOT = 'mdc-persistent-drawer';
     return (
-       <aside
+      <aside
         className={classnames(ROOT, {
           [`${ROOT}--open`]: open,
           [`${ROOT}--animating`]: animating,
@@ -126,7 +128,7 @@ class Persistent extends Component {
         <nav
           className="mdc-persistent-drawer__drawer"
         >
-          {children}
+          {childs}
         </nav>
       </aside>
     );

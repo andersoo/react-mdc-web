@@ -11,29 +11,35 @@ const propTypes = {
   persistent: PropTypes.bool,
 };
 
-const Drawer = ({ className, children, permanent, persistent, ...otherProps }) => (
-  permanent ? (
-    <Permanent
-      className={className}
-      {...otherProps}
-    >
-      {children}
-    </Permanent>
-  ) : (persistent ? (
-    <Persistent
-      className={className}
-      {...otherProps}
-    >
-      {children}
-    </Persistent>
-  ) : (
+const Drawer = ({ className, children, permanent, persistent, ...otherProps }) => {
+  if (permanent) {
+    return (
+      <Permanent
+        className={className}
+        {...otherProps}
+      >
+        {children}
+      </Permanent>
+    );
+  } else if (persistent) {
+    return (
+      <Persistent
+        className={className}
+        {...otherProps}
+      >
+        {children}
+      </Persistent>
+    );
+  }
+  return (
     <Temporary
       className={className}
       {...otherProps}
     >
       {children}
     </Temporary>
-  ))
-);
+  );
+};
+
 Drawer.propTypes = propTypes;
 export default Drawer;
