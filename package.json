@@ -1,5 +1,5 @@
 {
-  "name": "react-mdc-web-a",
+  "name": "react-mdc-web",
   "version": "0.17.0",
   "description": "React web components for Material Design",
   "main": "lib/index.js",
@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "material-components-web": "^0.23.0",
+    "material-components-web": "^0.26.0",
     "prop-types": "^15.5.10"
   }
 }

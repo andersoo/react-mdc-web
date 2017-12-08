@@ -7,7 +7,7 @@ module.exports = {
     "react-mdc-web.defaultTheme": "./src/defaultTheme.js",
   },
   output: {
-    path: path.resolve(__dirname, "out"),
+    path: path.resolve(__dirname, './out'),
     filename: "[name].js",
     library: "ReactMdcWeb",
     libraryTarget: "umd",
